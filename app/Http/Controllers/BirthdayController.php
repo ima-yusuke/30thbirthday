@@ -158,7 +158,6 @@ class BirthdayController extends Controller
 
     public function MoveTemporary()
     {
-        // 'public' ディスクから 'temporary' ディスクに移動
         $files = Storage::disk('public')->files('img'); // 'img' は画像が保存されているフォルダ名
 
         foreach ($files as $file) {
@@ -166,7 +165,10 @@ class BirthdayController extends Controller
             Storage::disk('temporary')->put($file, Storage::disk('public')->get($file));
 
             // コピーが成功した場合、元のファイルを削除
-            Storage::disk('public')->delete($file);
+            // もし必要ならばここでpublicディスクに再コピーすることも可能
+             Storage::disk('public')->put($file, Storage::disk('temporary')->get($file));
+
+//            Storage::disk('public')->delete($file);
         }
 
         return view("opening");
