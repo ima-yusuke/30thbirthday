@@ -6,7 +6,9 @@ use App\Http\Controllers\BirthdayController;
 
 Route::get("/",[BirthdayController::class,"ShowOpening"]);
 Route::get("/birthday",[BirthdayController::class,"ShowIndex"])->name("ShowIndex");
-
+Route::get('/', function () {
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
