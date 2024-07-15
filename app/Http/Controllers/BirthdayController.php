@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class BirthdayController extends Controller
@@ -154,5 +154,21 @@ class BirthdayController extends Controller
         $albumData = $this->albumData;
 
         return view("index",compact("albumData"));
+    }
+
+    public function MoveTemporary()
+    {
+        // 'public' ディスクから 'temporary' ディスクに移動
+        $files = Storage::disk('public')->files('img'); // 'img' は画像が保存されているフォルダ名
+
+        foreach ($files as $file) {
+            // ファイルを 'temporary' ディスクにコピー
+            Storage::disk('temporary')->put($file, Storage::disk('public')->get($file));
+
+            // コピーが成功した場合、元のファイルを削除
+            Storage::disk('public')->delete($file);
+        }
+
+        return view("opening");
     }
 }
