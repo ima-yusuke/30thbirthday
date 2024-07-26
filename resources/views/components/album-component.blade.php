@@ -59,23 +59,26 @@
                     $year++;
                 }
                 ?>
-            <article class="relative flex justify-center items-center w-[35vh] h-[45vh] bg-album-green text-about-white p-2.5 rounded-md shadow-lg">
-                <p class="text-xl absolute top-4 left-[50%] transform -translate-x-1/2">{{$year}}</p>
-                <aside class="flex items-center justify-center gap-4 text-4xl">
-                    <div class="relative w-[50px] h-[150px] bg-about-white p-2 rounded-md text-black font-extrabold flex items-center justify-center shadow-2xl">
-                        <p class="rotate-270">{{$en_month[date('m', strtotime($data["date"]))]}}</p>
-                        <div class="hole bg-album-green"></div> <!-- 穴を追加 -->
-                    </div>
-                    <div class="relative w-[50px] h-[150px] bg-about-white p-2 rounded-md text-black font-extrabold flex items-center justify-center shadow-2xl">
-                        <p>{{ $month_1 }}</p>
-                        <div class="hole bg-album-green"></div> <!-- 穴を追加 -->
-                    </div>
-                    <div class="relative w-[50px] h-[150px] bg-about-white p-2 rounded-md text-black font-extrabold flex items-center justify-center shadow-2xl">
-                        <p>{{ $month_2}}</p>
-                        <div class="hole bg-album-green"></div> <!-- 穴を追加 -->
-                    </div>
-                </aside>
-            </article>
+
+            @if(date('m', strtotime($data["date"]))==$month_1.$month_2)
+                <article class="relative flex justify-center items-center w-[35vh] h-[45vh] bg-album-green text-about-white p-2.5 rounded-md shadow-lg">
+                    <p class="text-xl absolute top-4 left-[50%] transform -translate-x-1/2">{{$year}}</p>
+                    <aside class="flex items-center justify-center gap-4 text-4xl">
+                        <div class="relative w-[50px] h-[150px] bg-about-white p-2 rounded-md text-black font-extrabold flex items-center justify-center shadow-2xl">
+                            <p class="rotate-270">{{$en_month[date('m', strtotime($data["date"]))]}}</p>
+                            <div class="hole bg-album-green"></div> <!-- 穴を追加 -->
+                        </div>
+                        <div class="relative w-[50px] h-[150px] bg-about-white p-2 rounded-md text-black font-extrabold flex items-center justify-center shadow-2xl">
+                            <p>{{ $month_1 }}</p>
+                            <div class="hole bg-album-green"></div> <!-- 穴を追加 -->
+                        </div>
+                        <div class="relative w-[50px] h-[150px] bg-about-white p-2 rounded-md text-black font-extrabold flex items-center justify-center shadow-2xl">
+                            <p>{{ $month_2}}</p>
+                            <div class="hole bg-album-green"></div> <!-- 穴を追加 -->
+                        </div>
+                    </aside>
+                </article>
+            @endif
         @endif
 
 
