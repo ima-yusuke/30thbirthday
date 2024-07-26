@@ -7,7 +7,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get("/",[BirthdayController::class,"ShowOpening"]);
 Route::get("/birthday",[BirthdayController::class,"ShowIndex"])->name("ShowIndex");
-Route::get("/files", [BirthdayController::class, 'MoveTemporary']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
