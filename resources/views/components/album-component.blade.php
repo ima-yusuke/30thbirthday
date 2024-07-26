@@ -88,7 +88,7 @@
 
 
             <!-- Modal toggle -->
-        <article style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);" class="story open-modal w-[35vh] h-[45vh] bg-album-green p-2.5 rounded-md shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+        <article style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);" class="story open-modal w-[35vh] h-[45vh] bg-album-green p-2.5 rounded-md shadow-lg">
             <img src="{{asset($data['img_1'])}}" alt="album" class="w-[35vh] h-[30vh] object-cover">
             <aside class="flex flex-col justify-center items-start gap-1.5 pt-2">
                 <p class="text-about-white text-xs">{{$data['date']}}</p>

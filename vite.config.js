@@ -6,6 +6,12 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/index-top.css',
+                'resources/css/index-about.css',
+                'resources/css/index-profile.css',
+                'resources/css/index-album.css',
+                'resources/css/side-menu.css',
+                'resources/css/admin.css',
                 'resources/js/app.js',
                 'resources/js/scroll-animation.js',
                 'resources/js/modal.js',
@@ -24,8 +30,14 @@ export default defineConfig({
         manifest: 'manifest.json',
         rollupOptions: {
             input: {
-                app: 'resources/js/app.js',
                 appStyles: 'resources/css/app.css',
+                indexTopStyles: 'resources/css/index-top.css',
+                indexAboutStyles: 'resources/css/index-about.css',
+                indexProfileStyles: 'resources/css/index-profile.css',
+                indexAlbumStyles: 'resources/css/index-album.css',
+                sideMenuStyles: 'resources/css/side-menu.css',
+                adminStyles: 'resources/css/admin.css',
+                app: 'resources/js/app.js',
                 scrollAnimation: 'resources/js/scroll-animation.js',
                 modal: 'resources/js/modal.js',
                 sideMenu: 'resources/js/side-menu.js',
