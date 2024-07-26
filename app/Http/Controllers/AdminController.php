@@ -12,8 +12,9 @@ class AdminController extends Controller
     //[SHOW]投稿
     public function ShowPostPage()
     {
-        $posts = Post::all();
-//        $categories = Category::all(); // 全てのカテゴリを取得
+        //日付順で取得
+        $posts = Post::orderBy('date', 'asc')->get();
+
         return view("dash-post", compact("posts"));
     }
 

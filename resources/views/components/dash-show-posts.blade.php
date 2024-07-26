@@ -2,8 +2,10 @@
     <div class="qa__item bg-white border border-solid border-gray-200 w-[80%] shrink-0">
         {{--既存投稿名--}}
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 py-6 px-2 ml-4">
-            <div class="flex flex-col">
+            <div class="flex flex-col gap-1">
+                <p class="text-xs text-gray-400">【{{$value["date"]}}】</p>
                 <p class="text-xs md:text-base lg:text-lg font-bold leading-6 opacity-90">{{$value["title"]}}</p>
+
             </div>
             <aside class="flex gap-4 md:gap-6">
                 <div class="flex">
