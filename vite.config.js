@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/scroll-animation.js',
                 'resources/js/modal.js',
+                'resources/js/side-menu.js',
                 'resources/js/admin/dash-post.js',
             ],
             refresh: true,
@@ -27,6 +28,7 @@ export default defineConfig({
                 appStyles: 'resources/css/app.css',
                 scrollAnimation: 'resources/js/scroll-animation.js',
                 modal: 'resources/js/modal.js',
+                sideMenu: 'resources/js/side-menu.js',
                 dashPost: 'resources/js/admin/dash-post.js',
             }
         }

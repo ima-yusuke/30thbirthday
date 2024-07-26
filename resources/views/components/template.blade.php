@@ -4,7 +4,7 @@
     @if(isset($description))
         <meta name="description" content="{{ $description }}"/>
     @endif
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css','resources/js/side-menu.js'])
 </x-head>
 <div>
     @if($title!="Birthday")
@@ -14,6 +14,7 @@
     @endif
 
     <body id="body">
+        <x-side-menu></x-side-menu>
         {{ $slot }}
     </body>
 {{--    <x-footer>--}}
