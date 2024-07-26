@@ -8,38 +8,62 @@
 </section>
 
 <section class="bg-about-white flex flex-col md:flex-wrap md:flex-row justify-center items-center gap-6 py-6">
+    <?php
+        $year = 2023;
+        $month_1 = 1;
+        $month_2 = 1;
+        $en_month = [
+            "1" => "JAN", "2" => "FEB", "3" => "MAR",
+            "4" => "APR", "5" => "MAY", "6" => "JUN",
+            "7" => "JUL", "8" => "AUG", "9" => "SEP",
+            "10" => "OCT", "11" => "NOV", "12" => "DEC"
+        ];
+    ?>
     @foreach($albumData as $data)
-        @if($data["id"]==="month")
+        @if(date('m', strtotime($data["date"]))==$month_1.$month_2)
             <article class="relative flex justify-center items-center w-[35vh] h-[45vh] bg-album-green text-about-white p-2.5 rounded-md shadow-lg">
-                <p class="text-xl absolute top-4 left-[50%] transform -translate-x-1/2">{{$data["year"]}}</p>
+                <p class="text-xl absolute top-4 left-[50%] transform -translate-x-1/2">{{$year}}</p>
                 <aside class="flex items-center justify-center gap-4 text-4xl">
                     <div class="relative w-[50px] h-[150px] bg-about-white p-2 rounded-md text-black font-extrabold flex items-center justify-center shadow-2xl">
-                        <p class="rotate-270">{{$data["en_month"]}}</p>
+                        <p class="rotate-270">{{$en_month[date('m', strtotime($data["date"]))]}}</p>
                         <div class="hole bg-album-green"></div> <!-- 穴を追加 -->
                     </div>
                     <div class="relative w-[50px] h-[150px] bg-about-white p-2 rounded-md text-black font-extrabold flex items-center justify-center shadow-2xl">
-                        <p>{{$data["num_1"]}}</p>
+                        <p>{{ $month_1 }}</p>
                         <div class="hole bg-album-green"></div> <!-- 穴を追加 -->
                     </div>
                     <div class="relative w-[50px] h-[150px] bg-about-white p-2 rounded-md text-black font-extrabold flex items-center justify-center shadow-2xl">
-                        <p>{{$data["num_2"]}}</p>
+                        <p>{{ $month_2}}</p>
                         <div class="hole bg-album-green"></div> <!-- 穴を追加 -->
                     </div>
                 </aside>
             </article>
-        @else
-            <!-- Modal toggle -->
-            <article style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);" class="open-modal w-[35vh] h-[45vh] bg-album-green p-2.5 rounded-md shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                <img src="{{asset($data['img_1'])}}" alt="album" class="w-[35vh] h-[30vh] object-cover">
-                <aside class="flex flex-col justify-center items-start gap-1.5 pt-2">
-                    <p class="text-about-white text-xs">{{$data['date']}}</p>
-                    <p class="text-about-white text-sm">{!! nl2br(e($data['title'])) !!}</p>
-                </aside>
-            </article>
-
-            <!-- Modal -->
-            <x-album-modal-component :data="$data"></x-album-modal-component>
+            <?php
+                if($month_1==0 && $month_2<9){
+                    $month_2++;
+                }elseif($month_1==0 && $month_2==9){
+                    $month_1++;
+                    $month_2=0;
+                }elseif($month_1==1 && $month_2==1){
+                    $month_2++;
+                }elseif ($month_1==2 && $month_2==2) {
+                    $month_1 = 0;
+                    $month_2 = 1;
+                    $year++;
+                }
+            ?>
         @endif
+        <!-- Modal toggle -->
+        <article style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);" class="open-modal w-[35vh] h-[45vh] bg-album-green p-2.5 rounded-md shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+            <img src="{{asset($data['img_1'])}}" alt="album" class="w-[35vh] h-[30vh] object-cover">
+            <aside class="flex flex-col justify-center items-start gap-1.5 pt-2">
+                <p class="text-about-white text-xs">{{$data['date']}}</p>
+                <p class="text-about-white text-sm">{!! nl2br(e($data['title'])) !!}</p>
+            </aside>
+        </article>
+
+        <!-- Modal -->
+        <x-album-modal-component :data="$data"></x-album-modal-component>
     @endforeach
 </section>
 
