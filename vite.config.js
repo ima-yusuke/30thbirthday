@@ -7,6 +7,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/js/admin/dash-post.js',
             ],
             refresh: true,
         }),
@@ -22,6 +23,7 @@ export default defineConfig({
             input: {
                 app: 'resources/js/app.js',
                 appStyles: 'resources/css/app.css',
+                dashPost: 'resources/js/admin/dash-post.js',
             }
         }
     }

@@ -1,17 +1,12 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+    <div class="py-12 flex flex-wrap gap-4 justify-center items-center">
+        <div class="flex flex-col justify-center items-center shadow-xl text-center border-4 border-solid border-black bg-white w-[40%] md:w-[30%]">
+            <a href="{{route("ShowPostPage")}}" class="w-full h-full hover:bg-black hover:text-white p-3">
+                <div class="flex flex-col gap-2">
+                    <p><i class="fa-solid fa-file text-4xl"></i></p>
+                    <p class="font-bold text-sm md:text-base">投稿</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </x-app-layout>
