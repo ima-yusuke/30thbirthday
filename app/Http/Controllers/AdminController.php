@@ -127,7 +127,7 @@ class AdminController extends Controller
 
                 $fileName2 = $request->file('img_2')->getClientOriginalName();
                 $request->file('img_2')->storeAs($subImgPath, $fileName2);
-                $post->img_2 = 'storage/img/main/' . $post->id . '/' . $fileName2;
+                $post->img_2 = 'storage/img/sub/' . $post->id . '/' . $fileName2;
             }
 
             // 投稿の更新
