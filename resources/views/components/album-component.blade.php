@@ -38,20 +38,6 @@
                     </div>
                 </aside>
             </article>
-            <?php
-                if($month_1==0 && $month_2<9){
-                    $month_2++;
-                }elseif($month_1==0 && $month_2==9){
-                    $month_1++;
-                    $month_2=0;
-                }elseif($month_1==1 && $month_2==1){
-                    $month_2++;
-                }elseif ($month_1==2 && $month_2==2) {
-                    $month_1 = 0;
-                    $month_2 = 1;
-                    $year++;
-                }
-            ?>
         @endif
         <!-- Modal toggle -->
         <article style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);" class="open-modal w-[35vh] h-[45vh] bg-album-green p-2.5 rounded-md shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
@@ -64,6 +50,21 @@
 
         <!-- Modal -->
         <x-album-modal-component :data="$data"></x-album-modal-component>
+
+        <?php
+            if($month_1==0 && $month_2<9){
+                $month_2++;
+            }elseif($month_1==0 && $month_2==9){
+                $month_1++;
+                $month_2=0;
+            }elseif($month_1==1 && $month_2==1){
+                $month_2++;
+            }elseif ($month_1==1 && $month_2==2) {
+                $month_1 = 0;
+                $month_2 = 1;
+                $year++;
+            }
+        ?>
     @endforeach
 </section>
 
