@@ -10,7 +10,7 @@
             {{-- Modal body --}}
             <div>
                 <div class="relative">
-                    <img src="{{ asset($data['img-1']) }}" class="md:h-550 w-full object-cover">
+                    <img src="{{ asset($data['img_1']) }}" class="md:h-550 w-full object-cover">
 
                     <h3 class="bg-indigo-50 opacity-75 shadow-[0px 0px 8px rgba(255, 255, 255, 0.50)] text-md absolute bottom-0 w-full px-4 py-2 text-start font-black !leading-relaxed text-textBlack md:text-3xl">
                         {!! nl2br(e($data['title'])) !!}
@@ -19,7 +19,7 @@
                 <div class="py-6 px-4">
                     <p>{!! nl2br(e($data['text'])) !!}</p>
                 </div>
-                <img src="{{ asset($data['img-2']) }}" class="md:h-550 w-full object-cover">
+                <img src="{{ asset($data['img_2']) }}" class="md:h-550 w-full object-cover">
             </div>
 
             {{-- Modal footer --}}

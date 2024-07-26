@@ -30,7 +30,7 @@
         @else
             <!-- Modal toggle -->
             <article style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);" class="open-modal w-[35vh] h-[45vh] bg-album-green p-2.5 rounded-md shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                <img src="{{asset($data['img-1'])}}" alt="album" class="w-[35vh] h-[30vh] object-cover">
+                <img src="{{asset($data['img_1'])}}" alt="album" class="w-[35vh] h-[30vh] object-cover">
                 <aside class="flex flex-col justify-center items-start gap-1.5 pt-2">
                     <p class="text-about-white text-xs">{{$data['date']}}</p>
                     <p class="text-about-white text-sm">{!! nl2br(e($data['title'])) !!}</p>
