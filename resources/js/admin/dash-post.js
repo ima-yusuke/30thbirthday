@@ -95,8 +95,13 @@ document.querySelectorAll('.update-btn').forEach((btn) => {
         const FORM_DATA = new FormData(FORM_ELEMENTS);
 
         // バリデーション
-        if(FORM_DATA.get('name').trim() === ""){
+        if(FORM_DATA.get('title').trim() === ""){
             alert('投稿名を入力してください');
+            return;
+        }
+
+        if(FORM_DATA.get('text').trim() === ""){
+            alert('コンテンツを入力してください');
             return;
         }
 

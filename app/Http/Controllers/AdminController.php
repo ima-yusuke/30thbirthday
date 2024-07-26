@@ -14,7 +14,7 @@ class AdminController extends Controller
     {
         $posts = Post::all();
 //        $categories = Category::all(); // 全てのカテゴリを取得
-        return view("dash-post",compact("posts"));
+        return view("dash-post", compact("posts"));
     }
 
     //[ADD]投稿
@@ -33,27 +33,34 @@ class AdminController extends Controller
             $post->title = $request->title;
             $post->text = $request->text;
             $post->date = $request->date;
-            $post->img_1 = 'storage/img/' .  $imgFileName1;
-            $post->img_2 = 'storage/img/' .  $imgFileName2;
+            $post->img_1 = 'storage/img/' . $imgFileName1;
+            $post->img_2 = 'storage/img/' . $imgFileName2;
 
             $post->save();
 
             // 画像を保存するディレクトリのパスを生成
-            $imgDirectoryPath = storage_path('app/public/img/' . $post->id);
+            $mainDirectoryPath = storage_path('app/public/img/main/' . $post->id);
+            $subDirectoryPath = storage_path('app/public/img/sub/' . $post->id);
 
             // ディレクトリが存在しない場合は作成し、パーミッションを設定
-            if (!file_exists($imgDirectoryPath)) {
-                mkdir($imgDirectoryPath, 0755, true);
-                chmod($imgDirectoryPath, 0755);
+            if (!file_exists($mainDirectoryPath)) {
+                mkdir($mainDirectoryPath, 0755, true);
+                chmod($mainDirectoryPath, 0755);
+            }
+
+            // ディレクトリが存在しない場合は作成し、パーミッションを設定
+            if (!file_exists($subDirectoryPath)) {
+                mkdir($subDirectoryPath, 0755, true);
+                chmod($subDirectoryPath, 0755);
             }
 
             // storageに画像ファイル保存
-            $request->file('img_1')->storeAs('public/img/' . $post->id,  $imgFileName1);
-            $request->file('img_2')->storeAs('public/img/' . $post->id,  $imgFileName2);
+            $request->file('img_1')->storeAs('public/img/main/' . $post->id, $imgFileName1);
+            $request->file('img_2')->storeAs('public/img/sub/' . $post->id, $imgFileName2);
 
             // 画像パスを更新
-            $post->img_1 = 'storage/img/' . $post->id . '/' .  $imgFileName1;
-            $post->img_2 = 'storage/img/' . $post->id . '/' .  $imgFileName2;
+            $post->img_1 = 'storage/img/main/' . $post->id . '/' . $imgFileName1;
+            $post->img_2 = 'storage/img/sub/' . $post->id . '/' . $imgFileName2;
 
             $post->save();
 
@@ -78,146 +85,113 @@ class AdminController extends Controller
     }
 
     //[UPDATE]投稿
-//    public function UpdatePost(Request $request, $id)
-//    {
-//        DB::beginTransaction();
-//
-//        try {
-//            $post = Post::find($id);
-//
-//            // 画像の更新処理
-//            if ($request->hasFile('img')) {
-//                $fileName = $request->file('img')->getClientOriginalName();
-//                $newImgPath = 'public/img/' . $post->id;
-//
-//                // 以前の画像を削除
-//                Storage::disk('public')->deleteDirectory('img/' . $post->id);
-//
-//                // 新しいディレクトリを作成し、パーミッションを設定
-//                $directoryPath = storage_path('app/public/img/' . $post->id);
-//                if (!file_exists($directoryPath)) {
-//                    mkdir($directoryPath, 0755, true);
-//                    chmod($directoryPath, 0755);
-//                }
-//
-//                // 新しい画像を保存
-//                $request->file('img')->storeAs($newImgPath, $fileName);
-//                $post->img = 'storage/img/' . $post->id . '/' . $fileName;
-//            }
-//
-//            // PDFの更新処理
-//            if ($request->hasFile('pdf')) {
-//                $fileName = $request->file('pdf')->getClientOriginalName();
-//                $newPdfPath = 'public/pdf/' . $post->id;
-//
-//                Storage::disk('public')->deleteDirectory('pdf/' . $post->id);
-//
-//                $directoryPath = storage_path('app/public/pdf/' . $post->id);
-//                if (!file_exists($directoryPath)) {
-//                    mkdir($directoryPath, 0755, true);
-//                    chmod($directoryPath, 0755);
-//                }
-//
-//                $request->file('pdf')->storeAs($newPdfPath, $fileName);
-//                $post->pdf = 'storage/pdf/' . $post->id . '/' . $fileName;
-//            }
-//
-//            // Videoの更新処理
-//            if ($request->hasFile('video')) {
-//                $fileName = $request->file('video')->getClientOriginalName();
-//                $newVideoPath = 'public/video/' . $post->id;
-//
-//                Storage::disk('public')->deleteDirectory('video/' . $post->id);
-//
-//                $directoryPath = storage_path('app/public/video/' . $post->id);
-//                if (!file_exists($directoryPath)) {
-//                    mkdir($directoryPath, 0755, true);
-//                    chmod($directoryPath, 0755);
-//                }
-//
-//                $request->file('video')->storeAs($newVideoPath, $fileName);
-//                $post->video = 'storage/video/' . $post->id . '/' . $fileName;
-//            }
-//
-//            $post->name = $request->name;
-//            $post->category = $request->category;
-//            $post->save();
-//
-//            DB::commit();
-//            return response()->json([
-//                'message' => '投稿が正常に更新されました',
-//                'redirect' => route('ShowPostPage')
-//            ], 200);
-//
-//        } catch (\Exception $e) {
-//            DB::rollback();
-//            return response()->json([
-//                'message' => '投稿更新に失敗しました',
-//                'error' => $e->getMessage()
-//            ], 500);
-//        }
-//    }
+    public function UpdatePost(Request $request, $id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $post = Post::findOrFail($id);
+
+            if ($request->hasFile('img_1')) {
+                // 新しい画像のパス
+                $mainImgPath = 'public/img/main/' . $post->id;
+                $mainDirectoryPath = storage_path('app/public/img/main/' . $post->id);
+
+                // 以前の画像を削除
+                Storage::disk('public')->deleteDirectory('img/main/' . $post->id);
+
+                // 新しいディレクトリを作成し、パーミッションを設定
+                if (!file_exists($mainDirectoryPath)) {
+                    mkdir($mainDirectoryPath, 0755, true);
+                    chmod($mainDirectoryPath, 0755);
+                }
+
+                $fileName1 = $request->file('img_1')->getClientOriginalName();
+                $request->file('img_1')->storeAs($mainImgPath, $fileName1);
+                $post->img_1 = 'storage/img/main/' . $post->id . '/' . $fileName1;
+            }
+
+            if ($request->hasFile('img_2')) {
+                // 新しい画像のパス
+                $subImgPath = 'public/img/sub/' . $post->id;
+                $subDirectoryPath = storage_path('app/public/img/sub/' . $post->id);
+
+                // 以前の画像を削除
+                Storage::disk('public')->deleteDirectory('img/sub/' . $post->id);
+
+                // 新しいディレクトリを作成し、パーミッションを設定
+                if (!file_exists($subDirectoryPath)) {
+                    mkdir($subDirectoryPath, 0755, true);
+                    chmod($subDirectoryPath, 0755);
+                }
+
+                $fileName2 = $request->file('img_2')->getClientOriginalName();
+                $request->file('img_2')->storeAs($subImgPath, $fileName2);
+                $post->img_2 = 'storage/img/main/' . $post->id . '/' . $fileName2;
+            }
+
+            // 投稿の更新
+            $post->title = $request->title;
+            $post->text = $request->text;
+            $post->date = $request->date;
+            $post->save();
+
+            DB::commit();
+            return response()->json([
+                'message' => '投稿が正常に更新されました',
+                'redirect' => route('ShowPostPage')
+            ], 200);
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'message' => '投稿更新に失敗しました',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
 
     //[DELETE]投稿
-//    public function DeletePost(Request $request)
-//    {
-//        try {
-//            // 商品テーブルから指定のIDのレコード1件を取得
-//            $post = Post::find($request->id);
-//
-//            if (!$post) {
-//                return response()->json([
-//                    'message' => '削除対象の投稿が見つかりませんでした',
-//                ], 404);
-//            }
-//
-//            // ディレクトリを削除
-//            $directoryPath = 'img/' . $post->id;
-//            if (Storage::disk('public')->exists($directoryPath)) {
-//                Storage::disk('public')->deleteDirectory($directoryPath);
-//            }
-//
-//            // レコードを削除
-//            $post->delete();
-//
-//            // JSONレスポンスを返す
-//            return response()->json([
-//                'message' => '投稿が正常に削除されました',
-//                'redirect' => route('ShowPostPage')
-//            ]);
-//        } catch (\Exception $e) {
-//            return response()->json([
-//                'message' => '投稿の削除に失敗しました',
-//                'error' => $e->getMessage()
-//            ], 500);
-//        }
-//    }
+    public function DeletePost(Request $request)
+    {
+        try {
+            // 商品テーブルから指定のIDのレコード1件を取得
+            $post = Post::find($request->id);
 
-    //[TOGGLE]投稿
-//    public function TogglePost(Request $request)
-//    {
-//        try {
-//            $post = Post::find($request->id);
-//
-//            if (!$post) {
-//                return response()->json(['message' => '対象投稿が見つかりませんでした'], 404);
-//            }
-//
-//            // レコードを更新
-//            $post->is_enabled = $request->is_enabled;
-//            $post->save();
-//
-//            // JSONレスポンスを返す
-//            return response()->json([
-//                'message' => '表示設定の変更が完了しました',
-//                'redirect' => route('ShowPostPage')
-//            ]);
-//        } catch (\Exception $e) {
-//            // エラーが発生した場合の処理
-//            return response()->json([
-//                'message' => '表示設定の変更に失敗しました',
-//                'error' => $e->getMessage()
-//            ], 500);
-//        }
-//    }
+            if (!$post) {
+                return response()->json([
+                    'message' => '削除対象の投稿が見つかりませんでした',
+                ], 404);
+            }
+
+            // ディレクトリを削除
+            $mainDirectoryPath = 'img/main/' . $post->id;
+            if (Storage::disk('public')->exists($mainDirectoryPath)) {
+                Storage::disk('public')->deleteDirectory($mainDirectoryPath);
+            }
+
+            $subDirectoryPath = 'img/sub/' . $post->id;
+            if (Storage::disk('public')->exists($subDirectoryPath)) {
+                Storage::disk('public')->deleteDirectory($subDirectoryPath);
+            }
+
+            // レコードを削除
+            $post->delete();
+
+            // JSONレスポンスを返す
+            return response()->json([
+                'message' => '投稿が正常に削除されました',
+                'redirect' => route('ShowPostPage')
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => '投稿の削除に失敗しました',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
 }
+
+
+
+
