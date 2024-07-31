@@ -9,6 +9,9 @@
     {{--プロフィール--}}
     <x-profile-component></x-profile-component>
 
+    {{--しおり--}}
+    <x-itinerary-component></x-itinerary-component>
+
     {{--アルバムパート--}}
     <x-album-component :albumData="$albumData"></x-album-component>
 </x-template>
