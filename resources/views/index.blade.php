@@ -1,5 +1,4 @@
 <x-template title="Birthday">
-
     {{--トップ画面--}}
     <x-top-component></x-top-component>
 

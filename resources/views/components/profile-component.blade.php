@@ -1,4 +1,4 @@
-<x-title-component color="profile-yellow" title="01.Profile"></x-title-component>
+<x-title-component color="profile-yellow" title="01.Profile" id="profile"></x-title-component>
 
 {{--竹内--}}
 <section id="profile1" class="profile anime relative w-full h-full flex flex-col justify-end items-center">

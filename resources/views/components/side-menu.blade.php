@@ -7,18 +7,18 @@
         <div class="py-4 overflow-y-auto">
             <ul class="space-y-4">
                 <li class="side_li">
-                    <a href="/" class="flex items-center p-2 text-white text-4xl hover:text-gray-100 group">
-                        <span class="ms-3">Works</span>
+                    <a href="#profile" class="flex items-center p-2 text-white text-4xl hover:text-gray-100 group">
+                        <span class="ms-3">Profile</span>
                     </a>
                 </li>
                 <li class="side_li">
-                    <a href="#" target="blank" class="flex items-center p-2 text-white text-4xl hover:text-gray-100 group">
-                        <span class="ms-3">About</span>
+                    <a href="#itinerary" class="flex items-center p-2 text-white text-4xl hover:text-gray-100 group">
+                        <span class="ms-3">Itinerary</span>
                     </a>
                 </li>
                 <li class="side_li">
-                    <a href="#" class="flex items-center p-2 text-white text-4xl hover:text-gray-100 group">
-                        <span class="ms-3">Contact</span>
+                    <a href="#album" class="flex items-center p-2 text-white text-4xl hover:text-gray-100 group">
+                        <span class="ms-3">Album</span>
                     </a>
                 </li>
             </ul>

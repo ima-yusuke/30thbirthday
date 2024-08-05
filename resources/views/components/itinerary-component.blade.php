@@ -1,6 +1,10 @@
-<section class="border-4 border-solid border-black px-2.5 py-6 md:p-6 mx-2 my-8 md:m-8">
-    <article class="flex flex-col gap-16">
-        <h2 class="text-center text-6xl text-bold">DAY1</h2>
+<x-title-component color="about-orange" title="02.Itinerary" id="itinerary"></x-title-component>
+<section class="border-4 border-solid border-about-orange px-2.5 py-6 md:p-6 mx-2 my-8 md:m-8">
+    <article class="flex flex-col items-center gap-16">
+        <div class="flex flex-col items-center gap-6">
+            <h2 class="text-center text-6xl text-bold text-about-orange">DAY1</h2>
+            <p class="border-b-2 border-solid border-about-orange w-[70px] my-1 text-center"></p>
+        </div>
         <div class="md:ml-8">
             <x-itinerary-div time="09:00">
                 <p>姫のピックアップ</p>
@@ -102,9 +106,12 @@
     </article>
 </section>
 
-<section class="border-4 border-solid border-black px-2.5 py-6 md:p-6 mx-2 my-8 md:m-8">
+<section class="border-4 border-solid border-about-orange px-2.5 py-6 md:p-6 mx-2 my-8 md:m-8">
     <article class="flex flex-col gap-16">
-        <h2 class="text-center text-6xl text-bold">DAY2</h2>
+        <div class="flex flex-col items-center gap-6">
+            <h2 class="text-center text-6xl text-bold text-about-orange">DAY2</h2>
+            <p class="border-b-2 border-solid border-about-orange w-[70px] my-1 text-center"></p>
+        </div>
         <div class="md:ml-8">
             <x-itinerary-div time="09:45">
                 <p>HOUSE OF FINN JUHL HAKUBA 出発</p>

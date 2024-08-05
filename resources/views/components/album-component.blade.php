@@ -1,4 +1,4 @@
-<x-title-component color="album-green" title="02.Album"></x-title-component>
+<x-title-component color="album-green" title="03.Album" id="album"></x-title-component>
 <section>
     <img src="{{asset('storage/img/title-album.jpeg')}}" alt="album" class="w-full object-cover">
     <div class="bg-album-green flex flex-col justify-center items-center gap-4 h-[200px]">
