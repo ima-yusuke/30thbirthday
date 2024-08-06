@@ -16,6 +16,7 @@
 
     <script>
         let body = document.getElementById('body');
+        body.style.overflow = 'hidden';
 
         const BUTTON = document.getElementById("open-birthday");
 
@@ -26,8 +27,6 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const elements = document.getElementsByClassName('top-text');
-
-            body.style.overflow = 'hidden'
 
             setTimeout(function() {
                 for(let i = 0; i < elements.length; i++) {
