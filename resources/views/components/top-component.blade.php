@@ -1,10 +1,10 @@
-<section class="relative w-full min-h-screen flex justify-center items-center">
-    <div class="absolute inset-0 overflow-hidden">
-        <img src="{{ asset('storage/img/flower.jpeg') }}" alt="flower" class="w-full h-full object-cover">
+<section class="relative w-full min-h-screen flex justify-center items-center bg-top-gray">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full">
+        <img src="{{ asset('storage/img/flower-take.png') }}" alt="flower" class="w-full h-[700px] object-cover">
     </div>
     <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white">
         <aside class="flex flex-col justify-center items-center gap-2">
-            <h1 class="text-4xl">CHIHAYA</h1>
+            <h1 class="text-8xl text-top-white">8.18</h1>
             <p class="text-xl top-title flex overflow-hidden">
                 <span>3</span>
                 <span>0</span>

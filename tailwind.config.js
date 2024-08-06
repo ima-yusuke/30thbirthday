@@ -17,6 +17,8 @@ export default {
             colors:{
                 'opening-red':'#812B2D',
                 'opening-white':'#F5E9E5',
+                'top-gray':'#D4D5D9',
+                'top-black':'#2B2B2B',
                 'about-orange': '#E95122',
                 'about-white': '#F8F5ED',
                 'about-black': '#221917',

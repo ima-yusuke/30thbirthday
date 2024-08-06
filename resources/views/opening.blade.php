@@ -1,7 +1,7 @@
 <x-template title="Birthday">
     <img src="{{ asset('storage/img/top-flower.jpg') }}" class="min-h-screen w-full object-cover">
     <section class="hidden top-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <article class="text-gray-600 flex flex-col items-center gap-4">
+        <article class="text-top-black flex flex-col items-center gap-4">
             <h1 class="text-2xl">Happy Birthday</h1>
             <div class="flex flex-col items-center gap-1">
                 <p class="text-base">Chihaya Takeuchi</p>
@@ -9,7 +9,7 @@
             </div>
         </article>
     </section>
-    <button type="button" id="open-birthday" class="hidden top-text hover:cursor-pointer text-gray-600 absolute bottom-6 left-1/2 transform -translate-x-1/2">NEXT →</button>
+    <button type="button" id="open-birthday" class="hidden top-text hover:cursor-pointer text-top-black absolute bottom-6 left-1/2 transform -translate-x-1/2">NEXT →</button>
 
     <script>
         const BUTTON = document.getElementById("open-birthday");
