@@ -1,5 +1,5 @@
 <x-template title="Birthday">
-    <div class="bg-test h-screen w-full flex flex-col items-center justify-center">
+    <div class="bg-test h-screen w-full flex flex-col items-center justify-center overflow-hidden">
         <img src="{{ asset('storage/img/top-flower.jpg') }}" class="h-[400px] w-[400px] object-cover rotate-infinite rounded-full">
         <section class="hidden top-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <article class="text-top-black flex flex-col items-center gap-4">
