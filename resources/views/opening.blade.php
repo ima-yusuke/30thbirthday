@@ -1,5 +1,5 @@
 <x-template title="Birthday">
-    <div class="bg-test h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+    <div class="bg-test h-screen w-full flex flex-col items-center justify-center">
         <img src="{{ asset('storage/img/top-flower.jpg') }}" class="h-[400px] w-[400px] object-cover rotate-infinite rounded-full">
         <section class="hidden top-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <article class="text-top-black flex flex-col items-center gap-4">
@@ -15,14 +15,19 @@
     <button type="button" id="open-birthday" class="hidden top-text hover:cursor-pointer text-top-black absolute bottom-6 left-1/2 transform -translate-x-1/2">NEXT →</button>
 
     <script>
+        let body = document.getElementById('body');
+
         const BUTTON = document.getElementById("open-birthday");
 
         BUTTON.addEventListener('click', function() {
+            body.style.overflow = 'auto';
             window.location.href = "{{ route('ShowIndex') }}";
         });
 
         document.addEventListener('DOMContentLoaded', function () {
             const elements = document.getElementsByClassName('top-text');
+
+            body.style.overflow = 'hidden'
 
             setTimeout(function() {
                 for(let i = 0; i < elements.length; i++) {
@@ -31,6 +36,8 @@
                 }
             }, 1000); // 1秒後にアニメーション開始
         });
+
+
 
     </script>
 </x-template>
