@@ -1,26 +1,32 @@
 <x-template title="Birthday">
-    <section class="bg-opening-red relative flex justify-center items-center min-h-screen">
-        <article class="text-opening-white flex flex-col items-center gap-4">
-            <h1 class="text-xl">Happy Birthday</h1>
-            <div>
-                <img src="{{asset("storage/img/opening.jpeg")}}" alt="opening-img" class="object-cover w-[200px] h-[300px] border-8 border-solid border-opening-white"/>
-            </div>
+    <img src="{{ asset('storage/img/top-flower.jpg') }}" class="min-h-screen w-full object-cover">
+    <section class="hidden top-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <article class="text-gray-600 flex flex-col items-center gap-4">
+            <h1 class="text-2xl">Happy Birthday</h1>
             <div class="flex flex-col items-center gap-1">
-                <p class="text-xl">Chihaya Tekeuchi</p>
+                <p class="text-base">Chihaya Takeuchi</p>
                 <p>2024.08.18</p>
             </div>
         </article>
-
-        <article class="absolute bottom-8 ml-0 m-auto text-sm text-opening-white flex flex-col items-start">
-           <button type="button" id="open-birthday" class="hover:cursor-pointer p-4">OPEN</button>
-        </article>
     </section>
+    <button type="button" id="open-birthday" class="hidden top-text hover:cursor-pointer text-gray-600 absolute bottom-6 left-1/2 transform -translate-x-1/2">NEXT →</button>
 
     <script>
         const BUTTON = document.getElementById("open-birthday");
 
         BUTTON.addEventListener('click', function() {
             window.location.href = "{{ route('ShowIndex') }}";
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.getElementsByClassName('top-text');
+
+            setTimeout(function() {
+                for(let i = 0; i < elements.length; i++) {
+                    elements[i].classList.remove('hidden');
+                    elements[i].classList.add('fade-in-element');
+                }
+            }, 1000); // 1秒後にアニメーション開始
         });
 
     </script>
