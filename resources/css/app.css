@@ -40,3 +40,17 @@ body, html {
         animation: rotate 15s linear infinite;
     }
 }
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+
+.hide{
+    display: none;
+}

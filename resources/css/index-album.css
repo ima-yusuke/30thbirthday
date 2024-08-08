@@ -28,7 +28,7 @@
     opacity: 0;
 }
 
-.fade-in {
+.fade-in-album {
     opacity: 0;
     animation: fadeIn 2s forwards;
 }

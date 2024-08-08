@@ -21,19 +21,36 @@
         <button type="button" id="open-birthday" class="hidden top-text hover:cursor-pointer text-top-black absolute bottom-6 left-1/2 transform -translate-x-1/2">NEXT →</button>
     </section>
 
-    <div id="loading" class="hide fixed flex justify-center items-center text-2xl z-30 w-full min-h-screen bg-top-gray">
-        <div class="loading-wrapper w-[100dvh] h-full">
-            <section class="w-[200px] loading-test">
-                <div class="loading-circle"></div>
-                <div class="loading-circle"></div>
-                <div class="loading-circle"></div>
-                <div class="loading-shadow"></div>
-                <div class="loading-shadow"></div>
-                <div class="loading-shadow"></div>
-            </section>
-            <span id="loading_text" class="absolute left-1/2 -translate-x-1/2 bottom-48 w-[95%] md:w-[80%] text-center">Loading</span>
-        </div>
+
+    <div class="w-full min-h-screen flex justify-center items-center bg-top-gray opacity-0" id="loading_container">
+        <h1 class="text-white text-md text-center opacity-0">ちはちゃんおめでとうね</h1>
     </div>
+
+    <div id="img_container" class="hide w-full min-h-screen bg-top-gray">
+        <img src="{{ asset('storage/img/pic16-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic02-02.jpeg') }}" class="h-[200px] w-[200px] object-cover rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic03-02.JPG') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic04-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic05-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic06-02.png') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic07-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic08-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic09-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic10-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic11-02.JPG') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic12-02.PNG') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic13-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic14-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic15-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic16-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic17-02.PNG') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic18-02.JPG') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic19-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+        <img src="{{ asset('storage/img/pic20-02.JPG') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+    </div>
+
+
+
     @vite(['resources/js/opening.js'])
 </x-template>
 
