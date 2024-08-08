@@ -1,30 +1,24 @@
 <section class="relative w-full min-h-screen flex justify-center items-center bg-top-gray">
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full">
-        <img src="{{ asset('storage/img/flower-take.png') }}" alt="flower" class="w-full h-[700px] object-cover">
+    <!-- Image Container -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[100vh] flex justify-center items-end">
+        <img src="{{ asset('storage/img/flower-take.png') }}" alt="flower" class="w-full h-full object-cover">
     </div>
-    <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white">
-        <aside class="flex flex-col justify-center items-center gap-2">
-            <h1 class="text-8xl text-top-white">8.18</h1>
-            <p class="text-xl top-title flex overflow-hidden">
-                <span>3</span>
-                <span>0</span>
-                <span>t</span>
-                <span class="mr-2">h</span>
-                <span>B</span>
-                <span>i</span>
-                <span>r</span>
-                <span>t</span>
-                <span>h</span>
-                <span>d</span>
-                <span>a</span>
-                <span>y</span>
-            </p>
-        </aside>
-        <div class="scroll-animation mb-8 text-xl">
-            scroll
-        </div>
-    </div>
+
+    <!-- H1 Element Positioned Above the Image -->
+    <h1 class="relative mb-28 text-9xl text-white blur-effect">
+        8.18
+        <!-- Custom Blurred Spots -->
+        <span class="absolute bottom-0 left-0 w-16 h-16 rounded-full water"></span>
+        <span class="absolute top-0 right-0 w-16 h-16 rounded-full water"></span>
+    </h1>
+
+    <!-- Scroll Animation Text -->
+    <p class="scroll-animation mb-8 text-xl text-white">scroll</p>
+
+    <!-- Title Text -->
+    <p class="absolute -left-4 text-xs text-top-black top-title">30th Birthday</p>
 </section>
+
 
 <script>
     const CLASSNAME = "-visible";
