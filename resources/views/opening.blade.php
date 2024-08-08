@@ -1,5 +1,5 @@
 <x-template title="Birthday">
-    <div class="bg-test min-h-screen w-full flex flex-col items-center justify-center">
+    <div class="bg-test h-screen w-full flex flex-col items-center justify-center overflow-hidden">
         <!-- Image Container -->
         <div class="relative h-[400px] w-[400px]">
             <!-- Image -->
@@ -17,6 +17,7 @@
             </section>
         </div>
     </div>
+
 
 
     <button type="button" id="open-birthday" class="hidden top-text hover:cursor-pointer text-top-black absolute bottom-6 left-1/2 transform -translate-x-1/2">NEXT →</button>
