@@ -21,6 +21,21 @@
     backdrop-filter: blur(3px);
 }
 
+.blurred-background-off {
+    width: 100vw;
+    height: 100vh;
+    animation: clearBlur 3.5s ease-in-out forwards;
+}
+
+@keyframes clearBlur {
+    from {
+        backdrop-filter: blur(8px);
+    }
+    to {
+        backdrop-filter: blur(0px);
+    }
+}
+
 
 /*.top-title span {*/
 /*    display: block;*/

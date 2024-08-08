@@ -5,7 +5,6 @@
             <div class="relative h-[400px] w-[400px]">
                 <!-- Image -->
                 <img src="{{ asset('storage/img/top-flower.jpg') }}" class="h-full w-full object-cover rotate-infinite rounded-full">
-
                 <!-- Section to be centered -->
                 <section class="hidden top-text absolute inset-0 flex items-center justify-center">
                     <article class="text-top-black flex flex-col items-center gap-4">
@@ -26,8 +25,8 @@
         <h1 class="text-white text-md text-center opacity-0">ちはちゃんおめでとうね</h1>
     </div>
 
-    <div id="img_container" class="hide w-full min-h-screen bg-top-gray">
-        <img src="{{ asset('storage/img/pic16-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
+    <div id="img_container" class="hide w-full min-h-screen flex justify-center items-center bg-top-gray">
+        <img src="{{ asset('storage/img/flower-take.png') }}" class="h-100vh w-full object-cover  rounded-full opacity-0 flower hide">
         <img src="{{ asset('storage/img/pic02-02.jpeg') }}" class="h-[200px] w-[200px] object-cover rounded-full opacity-0 flower">
         <img src="{{ asset('storage/img/pic03-02.JPG') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
         <img src="{{ asset('storage/img/pic04-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
@@ -48,7 +47,7 @@
         <img src="{{ asset('storage/img/pic19-02.jpeg') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
         <img src="{{ asset('storage/img/pic20-02.JPG') }}" class="h-[200px] w-[200px] object-cover  rounded-full opacity-0 flower">
     </div>
-
+    <div id="bg_water" class="hide absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full min-h-screen rounded-full blurred-background-on"></div>
 
 
     @vite(['resources/js/opening.js'])

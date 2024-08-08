@@ -54,3 +54,19 @@ body, html {
 .hide{
     display: none;
 }
+
+
+.blurred-background-on {
+    width: 100vw;
+    height: 100vh;
+    animation: setBlur 3s ease-in-out forwards;
+}
+
+@keyframes setBlur {
+    from {
+        backdrop-filter: blur(0px);
+    }
+    to {
+        backdrop-filter: blur(3px);
+    }
+}

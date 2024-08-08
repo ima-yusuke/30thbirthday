@@ -12,6 +12,7 @@ const LOADING_TEXT = document.querySelector('#loading_container h1');
 // 画像画面
 const IMAGES_CONTAINER = document.getElementById('img_container');
 const IMAGES = document.getElementsByClassName('flower');
+const BG_WATER = document.getElementById('bg_water');
 
 body.style.overflow = 'hidden';
 
@@ -55,18 +56,29 @@ BUTTON.addEventListener('click', function() {
             setTimeout(function() {
                 const showImagesInOrder = (images, delay) => {
                     images.forEach((image, index) => {
-                        setTimeout(() => {
-                            image.style.transition = 'opacity 1s ease-in-out';
-                            image.style.opacity = 1; // 段階的に表示
-                        }, index * delay); // 各画像に遅延を適用
+                        if(index!==0) {
+                            setTimeout(() => {
+                                image.style.transition = 'opacity 1s ease-in-out';
+                                image.style.opacity = 1; // 段階的に表示
+                            }, index * delay); // 各画像に遅延を適用
+                        }
                     });
                 };
 
                 showImagesInOrder(Array.from(IMAGES), 300); // 500ms ごとに次の画像を表示
-                setTimeout(function() {
-                    window.location.href = "/birthday";
 
-                }, 7000);
+                setTimeout(function() {
+                    IMAGES[0].classList.remove('hide');
+                    IMAGES[0].style.transition = 'opacity 1s ease-in-out';
+                    IMAGES[0].style.opacity = 1; // 段階的に表示
+                    BG_WATER.classList.remove('hide');
+                    setTimeout(function() {
+                        HideImages();
+                        setTimeout(function() {
+                            window.location.href = "/birthday";
+                        }, 2600);
+                    },2000);
+                }, 6500);
             },1000);
         },2000);
     },1000);
@@ -80,4 +92,50 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 1000); // 1秒後にアニメーション開始
 });
+
+function HideImages(){
+
+    // 画面の中心座標
+    const screenCenterX = window.innerWidth / 2;
+    const screenCenterY = window.innerHeight / 2;
+
+    // 画面の端座標
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+
+    for (let i = 0; i < IMAGES.length; i++) {
+        const rect = IMAGES[i].getBoundingClientRect();
+        const imgX = rect.left + rect.width / 2;
+        const imgY = rect.top + rect.height / 2;
+
+        // 判定して移動させる
+        if (imgX > screenCenterX && imgY > screenCenterY) {
+            // 右下（'xが正、yが正'）
+            IMAGES[i].style.transition = 'all 3s ease';
+            IMAGES[i].style.left = screenWidth - rect.width / 2 + 'px';
+            IMAGES[i].style.top = screenHeight - rect.height / 2 + 'px';
+            IMAGES[i].style.transform = 'translate(50%, 50%)';
+        } else if (imgX > screenCenterX && imgY < screenCenterY) {
+            // 右上（'xが正、yが負'）
+            IMAGES[i].style.transition = 'all 3s ease';
+            IMAGES[i].style.left = screenWidth - rect.width / 2 + 'px';
+            IMAGES[i].style.top = -rect.height / 2 + 'px';
+            IMAGES[i].style.transform = 'translate(50%, -50%)';
+        } else if (imgX < screenCenterX && imgY > screenCenterY) {
+            // 左下（'xが負、yが正'）
+            IMAGES[i].style.transition = 'all 3s ease';
+            IMAGES[i].style.left = -rect.width / 2 + 'px';
+            IMAGES[i].style.top = screenHeight - rect.height / 2 + 'px';
+            IMAGES[i].style.transform = 'translate(-50%, 50%)';
+        } else if (imgX < screenCenterX && imgY < screenCenterY) {
+            // 左上（'xが負、yが負'）
+            IMAGES[i].style.transition = 'all 3s ease';
+            IMAGES[i].style.left = -rect.width / 2 + 'px';
+            IMAGES[i].style.top = -rect.height / 2 + 'px';
+            IMAGES[i].style.transform = 'translate(-50%, -50%)';
+        }
+    }
+
+}
 

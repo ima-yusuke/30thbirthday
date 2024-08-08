@@ -19,6 +19,7 @@
     <p class="absolute -left-4 text-xs text-top-black top-title">30th Birthday</p>
 </section>
 
+<div class="blurred-background-off absolute top-0 left-0 w-full h-screen"></div>
 
 <script>
     const CLASSNAME = "-visible";
