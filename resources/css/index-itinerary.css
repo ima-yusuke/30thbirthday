@@ -1,6 +1,6 @@
 .dot-line {
     width: 2px;
-    background-image: linear-gradient(to bottom, black 50%, transparent 50%);
+    background-image: linear-gradient(to bottom, #2B2B2B 50%, transparent 50%);
     background-size: 100% 5px;
     background-repeat: repeat-y;
 }

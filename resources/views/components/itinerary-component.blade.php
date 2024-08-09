@@ -1,5 +1,6 @@
 <x-title-component color="about-orange" title="02.Itinerary" id="itinerary"></x-title-component>
-<section class="border-4 border-solid border-about-orange px-2.5 py-6 md:p-6 mx-2 my-8 md:m-8">
+{{--DAY1--}}
+<section class="border-4 border-solid border-top-black px-2.5 py-6 md:p-6 mx-2 my-8 md:m-8">
     <article class="flex flex-col items-center gap-16">
         <div class="flex flex-col items-center gap-6">
             <h2 class="text-center text-6xl text-bold text-about-orange">DAY1</h2>
@@ -95,7 +96,7 @@
 
             <div class="flex items-start">
                 <div class="flex flex-col items-center">
-                    <h2 class="rounded-md bg-black py-2 text-sm md:text-base text-gray-200 flex justify-center items-center relative w-[80px] md:w-[100px]">end</h2>
+                    <h2 class="rounded-md bg-top-black py-2 text-sm md:text-base text-gray-200 flex justify-center items-center relative w-[60px] md:w-[100px]">end</h2>
                 </div>
 
                 <aside class="text-sm md:text-base flex flex-col gap-5 ml-4 mt-2">
@@ -106,7 +107,8 @@
     </article>
 </section>
 
-<section class="border-4 border-solid border-about-orange px-2.5 py-6 md:p-6 mx-2 my-8 md:m-8">
+{{--DAY2--}}
+<section class="border-4 border-solid border-top-black px-2.5 py-6 md:p-6 mx-2 my-8 md:m-8">
     <article class="flex flex-col gap-16">
         <div class="flex flex-col items-center gap-6">
             <h2 class="text-center text-6xl text-bold text-about-orange">DAY2</h2>
@@ -151,16 +153,16 @@
                 <p>御在所SA到着</p>
                 <p class="text-gray-600"><i class="fa-solid fa-utensils pr-2"></i>夕食タイム（自由食）</p>
                 <p class="text-gray-600">※行きとはお店は違うよ〜</p>
-                <div class="flex gap-2">
-                    <aside class="flex flex-col items-center gap-1">
+                <div class="flex justify-start">
+                    <aside class="flex flex-col items-center gap-y-1">
                         <img src="{{asset("storage/img/chiken.png")}}" class="rounded-lg w-[8vh] h-[8vh] md:w-[20vh] md:h-[20vh] object-cover">
                         <p class="text-xs text-center text-gray-600">【名古屋コーチン】</p>
                     </aside>
-                    <aside class="flex flex-col items-center gap-1">
+                    <aside class="flex flex-col items-center gap-y-1">
                         <img src="{{asset("storage/img/udon.jpg")}}" class="rounded-lg w-[8vh] h-[8vh] md:w-[20vh] md:h-[20vh] object-cover">
                         <p class="text-xs text-center text-gray-600">【うどん】</p>
                     </aside>
-                    <aside class="flex flex-col items-center gap-1">
+                    <aside class="flex flex-col items-center gap-y-1">
                         <img src="{{asset("storage/img/onigiri.jpg")}}" class="rounded-lg w-[8vh] h-[8vh] md:w-[20vh] md:h-[20vh] object-cover">
                         <p class="text-xs text-center text-gray-600">【てんむす】</p>
                     </aside>
@@ -179,7 +181,7 @@
 
             <div class="flex items-start">
                 <div class="flex flex-col items-center">
-                    <h2 class="rounded-md bg-black py-2 text-sm md:text-base text-gray-200 flex justify-center items-center relative w-[80px] md:w-[100px]">end</h2>
+                    <h2 class="rounded-md bg-top-black py-2 text-sm md:text-base text-gray-200 flex justify-center items-center relative w-[60px] md:w-[100px]">end</h2>
                 </div>
 
                 <aside class="text-sm md:text-base flex flex-col gap-5 ml-4 mt-2">
@@ -190,18 +192,21 @@
     </article>
 </section>
 <script>
-    // しおりの縦の点線
-    let timeElements = document.getElementsByClassName("timeElement");
-    let contents = document.getElementsByClassName("content");
+    document.addEventListener('DOMContentLoaded', function() {
+        // しおりの縦の点線
+        let timeElements = document.getElementsByClassName("timeElement");
+        let contents = document.getElementsByClassName("content");
 
-    for (let i = 0; i < timeElements.length; i++) {
-        let rect = timeElements[i].getBoundingClientRect();
-        contents[i].style.marginTop = rect.height / 4 + "px";
+        for (let i = 0; i < timeElements.length; i++) {
+            let rect = timeElements[i].getBoundingClientRect();
+            contents[i].style.marginTop = rect.height / 4 + "px";
 
-        let contentSlotHeight = contents[i].offsetHeight;
-        if (contentSlotHeight < 50){
-            contentSlotHeight = 50;
+            let contentSlotHeight = contents[i].offsetHeight;
+            console.log(contentSlotHeight)
+            if (contentSlotHeight < 50) {
+                contentSlotHeight = 50;
+            }
+            document.getElementsByClassName('dot-line')[i].style.height = contentSlotHeight + 'px';
         }
-        document.getElementsByClassName('dot-line')[i].style.height = contentSlotHeight + 'px';
-    }
+    });
 </script>
