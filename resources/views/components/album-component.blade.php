@@ -1,11 +1,18 @@
 <x-title-component color="album-green" title="03.Album" id="album"></x-title-component>
-<section>
-    <img src="{{asset('storage/img/title-album.jpeg')}}" alt="album" class="w-full object-cover">
-    <div class="bg-album-green flex flex-col justify-center items-center gap-4 h-[200px]">
-        <p class="text-about-white text-sm">極秘ノートの内容をここで公開してくよ</p>
-        <p class="text-about-white text-xs">改めて"極秘"ってなんなんやろなぁ...</p>
+<section class="carousel">
+    <div class="carousel-track">
+        <img src="{{asset('storage/img/title-album.jpeg')}}" alt="album" class="object-cover">
+        <img src="{{asset('storage/img/pic01-01.jpeg')}}" alt="album" class="object-cover">
+        <img src="{{asset('storage/img/pic03-02.JPG')}}" alt="album" class="object-cover">
+        <img src="{{asset('storage/img/pic04-01.jpeg')}}" alt="album" class="object-cover">
+        <img src="{{asset('storage/img/title-album.jpeg')}}" alt="album" class="object-cover">
     </div>
 </section>
+
+<div class="bg-album-green flex flex-col justify-center items-center gap-4 h-[200px]">
+    <p class="text-about-white text-sm">極秘ノートの内容をここで公開してくよ</p>
+    <p class="text-about-white text-xs">改めて"極秘"ってなんなんやろなぁ...</p>
+</div>
 
 <section class="bg-about-white flex flex-col md:flex-wrap md:flex-row justify-center items-center gap-6 py-6">
     <?php

@@ -1,4 +1,39 @@
-/*album*/
+/*タイトル箇所*/
+.carousel {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel-track {
+    display: inline-block;
+    animation: scrollImages 15s linear infinite;
+}
+
+.carousel img {
+    width: 100vw;
+    height: 300px;
+    display: inline-block;
+}
+
+@keyframes scrollImages {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(-200%);
+    }
+    75% {
+        transform: translateX(-300%);
+    }
+    100% {
+        transform: translateX(-400%);
+    }
+}
+
+/*メインパート*/
 .rotate-270 {
     transform: rotate(-90deg);
 }
