@@ -8,7 +8,7 @@
                 <!-- Section to be centered -->
                 <section class="hidden top-text absolute inset-0 flex items-center justify-center">
                     <article class="text-top-black flex flex-col items-center gap-4">
-                        <h1 class="text-2xl">Happy Birthday</h1>
+                        <h1 class="text-2xl" id="top_text">Happy Birthday</h1>
                         <div class="flex flex-col items-center gap-1">
                             <p class="text-base">Chihaya Takeuchi</p>
                             <p>2024.08.18</p>
@@ -22,7 +22,7 @@
 
 
     <div class="w-full min-h-screen flex justify-center items-center bg-top-gray opacity-0" id="loading_container">
-        <h1 class="text-white text-md text-center opacity-0">ちはちゃんおめでとうね</h1>
+        <h1 class="text-white text-md text-center opacity-0">ちはちゃんお誕生日おめでとう</h1>
     </div>
 
     <div id="img_container" class="hide w-full min-h-screen flex justify-center items-center bg-top-gray">
