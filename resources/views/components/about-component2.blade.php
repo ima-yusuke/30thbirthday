@@ -13,16 +13,20 @@
         <div class="message px-8 mx-6 py-16 flex flex-col justify-center items-center gap-6 leading-8">
             <h2 class="text-xl">MESSAGE</h2>
             <p class="border-b border-solid border-black w-[50px] my-1"></p>
-            <p>ちはちゃん誕生日おめでとう</p>
+            <p>ちはちゃんお誕生日おめでとう</p>
             <p>
-                30歳になりましたね。そんなちはちゃんに何か俺やからこそできるプレゼントをあげたくてwebsiteを作ってみました。<br>
-                これからもちはちゃんと一緒にいろんなことを楽しんでいきたいなと思ってます。<br>
+                一緒にお祝いする初めての誕生日やね。そんなちはちゃんに何か俺やからこそできるプレゼントをあげたくてwebsiteを作ってみました。
             </p>
             <p>
-                30歳になりましたね。そんなちはちゃんに何か俺やからこそできるプレゼントをあげたくてwebsiteを作ってみました。<br>
-                これからもちはちゃんと一緒にいろんなことを楽しんでいきたいなと思ってます。<br>
-                これからもよろしくね！
+                センス抜群なちはちゃんからしたら、デザインとか色々言いたいことはあるかもしれんけど喜んでくれたら嬉しいです。
             </p>
+            <p>
+                ちなみにこのサイトは今後何か一緒に二人で作れたり、思い出を共有できるように改善していくつもりやからお楽しみに！
+            </p>
+            <p>それでは素敵な誕生日旅にいってらっしゃーい</p>
+            <div class="flex justify-end w-full">
+                <p class="text-end text-xs">Yusuke</p>
+            </div>
         </div>
     </article>
 </section>
