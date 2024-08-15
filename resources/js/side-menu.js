@@ -1,4 +1,4 @@
-import { PageFlip } from 'page-flip';
+// import { PageFlip } from 'page-flip';
 const HAMBURGER_ICON = document.getElementById('hamburger_icon');
 const CLOSE_ICON = document.getElementById('close_icon');
 let side_menu = document.getElementsByClassName("side_menu_off")[0];
