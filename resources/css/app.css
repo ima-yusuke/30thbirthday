@@ -2,12 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+#top_text{
+    font-family: 'Amatic SC', cursive;
+}
+
 html { scroll-behavior: smooth;}
 
-body, html {
-    margin: 0;
-    padding: 0;
-}
 
 /*opening.blade.php*/
 
@@ -70,3 +77,38 @@ body, html {
         backdrop-filter: blur(3px);
     }
 }
+
+
+/*＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+/*#book {*/
+/*    display: flex;*/
+/*    justify-content: center; !* 中央に配置 *!*/
+/*    perspective: 1000px;*/
+/*    width: 200px; !* 親要素に合わせる *!*/
+/*    height: 400px; !* 高さを設定 *!*/
+/*    position: relative;*/
+/*    overflow: hidden; !* はみ出した部分を隠す *!*/
+/*}*/
+
+/*.my-page {*/
+/*    position: absolute;*/
+/*    width: 100px; !* 親要素に合わせる *!*/
+/*    height: 400px; !* 親要素に合わせる *!*/
+/*    background: #afafaf;*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); !* ページに影を追加 *!*/
+/*    margin: 0; !* マージンをリセット *!*/
+/*}*/
+
+
+/*#book:after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    width: 5px; !* 幅を狭めに *!*/
+/*    background: rgba(0, 0, 0, 0.1); !* 淡い影の色 *!*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); !* 影を柔らかく *!*/
+/*    z-index: -1; !* 本の後ろに配置 *!*/
+/*}*/

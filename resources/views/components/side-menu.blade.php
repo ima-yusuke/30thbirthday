@@ -21,6 +21,11 @@
                         <span class="ms-3">Album</span>
                     </a>
                 </li>
+                <li class="side_li">
+                    <a href="/login" class="flex items-center p-2 text-white text-4xl hover:text-gray-100 group">
+                        <span class="ms-3">Login</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

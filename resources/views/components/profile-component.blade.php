@@ -19,7 +19,7 @@
         <div class="relative bg-profile-yellow text-about-white text-center py-8 w-full flex flex-col items-center z-10">
             <div class="flex flex-col gap-6">
                 <p class="border-2 border-solid border-about-white p-4 rounded-lg text-left">身長：152cm（小人）</p>
-                <p class="border-2 border-solid border-about-white p-4 rounded-lg text-left">あだ名：ヌオー</p>
+                <p class="border-2 border-solid border-about-white p-4 rounded-lg text-left">あだ名：あちし</p>
                 <p class="border-2 border-solid border-about-white p-4 rounded-lg text-left">好きな食べ物：焼き鳥、赤えび</p>
                 <p class="border-2 border-solid border-about-white p-4 rounded-lg text-left">性格：怒りっぽい性格</p>
             </div>

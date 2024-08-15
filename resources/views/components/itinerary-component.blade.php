@@ -117,7 +117,6 @@
         <div class="md:ml-8">
             <x-itinerary-div time="09:45">
                 <p>HOUSE OF FINN JUHL HAKUBA 出発</p>
-                <p class="pl-4 text-gray-600">朝ご飯...</p>
             </x-itinerary-div>
 
             <x-itinerary-div time="10:00">
@@ -128,6 +127,7 @@
                     <img src="{{asset("storage/img/swing.jpg")}}" class="rounded-lg w-[15vh] h-[10vh] md:w-[20vh] md:h-[20vh] object-cover">
                 </div>
                 <p class="text-gray-600"><i class="fa-solid fa-utensils pr-2"></i>昼食タイム（自由食）</p>
+                <p class="text-gray-600">10:30OPENのクロワッサンが名物</p>
                 <div class="flex gap-1">
                     <aside class="flex flex-col items-center gap-1">
                         <img src="{{asset("storage/img/soup.jpg")}}" class="rounded-lg w-[15vh] h-[10vh] md:w-[20vh] md:h-[20vh] object-cover">

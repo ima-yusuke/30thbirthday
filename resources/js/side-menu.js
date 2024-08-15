@@ -1,3 +1,4 @@
+import { PageFlip } from 'page-flip';
 const HAMBURGER_ICON = document.getElementById('hamburger_icon');
 const CLOSE_ICON = document.getElementById('close_icon');
 let side_menu = document.getElementsByClassName("side_menu_off")[0];
@@ -45,3 +46,29 @@ document.addEventListener("click",function (e){
         main.classList.remove("scroll_none")
     }
 })
+
+// const bookElement = document.getElementById('book');
+// const pageFlip = new PageFlip(bookElement, {
+//     width: bookElement.offsetWidth, // 初期幅を動的に設定
+//     height: bookElement.offsetHeight, // 初期高さを動的に設定
+//     showCover: true,
+//     maxShadowOpacity: 0.5,
+//     useMouseEvents: false,
+//     flippingTime: 3000,
+// });
+//
+// pageFlip.loadFromHTML(document.querySelectorAll('.my-page'));
+// // ページをクリックしたときにページをめくるイベントリスナーを追加
+// document.getElementById('book').addEventListener('click', (event) => {
+//     // クリックした位置によってページを進めるか戻すかを決定
+//     const bookWidth = document.getElementById('book').offsetWidth;
+//     const clickX = event.clientX;
+//
+//     if (clickX > bookWidth / 2) {
+//         // 右側をクリックした場合、次のページに進む
+//         pageFlip.flipNext();
+//     } else {
+//         // 左側をクリックした場合、前のページに戻る
+//         pageFlip.flipPrev();
+//     }
+// });

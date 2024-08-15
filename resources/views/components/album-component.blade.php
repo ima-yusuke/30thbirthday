@@ -9,12 +9,16 @@
     </div>
 </section>
 
-<div class="bg-album-green flex flex-col justify-center items-center gap-4 h-[200px]">
-    <p class="text-about-white text-sm">極秘ノートの内容をここで公開してくよ</p>
-    <p class="text-about-white text-xs">改めて"極秘"ってなんなんやろなぁ...</p>
+<div class="bg-album-green flex flex-col justify-center items-center gap-6 h-[200px]">
+    <p class="text-about-white text-sm">極秘ノートの内容をここで<span class="text-2xl">初</span>公開</p>
+    <aside class="flex flex-col items-center gap-2">
+        <p class="text-about-white" id="time_title">公開まで</p>
+        <p class="text-about-white text-3xl" id="current_time"></p>
+    </aside>
+
 </div>
 
-<section class="bg-about-white flex flex-col md:flex-wrap md:flex-row justify-center items-center gap-6 py-6">
+<section id="album_container" class="hide bg-about-white flex flex-col md:flex-wrap md:flex-row justify-center items-center gap-6 py-6">
     <?php
         $year = 2023;
         $month_1 = 1;
@@ -109,6 +113,45 @@
 
     @endforeach
 </section>
+<script>
+    const dead = new Date(2024, 7, 16, 0, 0, 0); // 2024年8月16日 0:00:00
+    const deadLine = parseInt( dead / 1000 ); // timestampに変更する
+    const dateCurrent = parseInt( new Date() / 1000 ); // 現在時刻を取得
+    const ALBUM_CONTAINER = document.getElementById("album_container");
+
+    if ( dateCurrent > deadLine ) {
+        ALBUM_CONTAINER.classList.remove("hide");
+    }
+
+    // カウントダウンの終了日を設定
+    const countDownDate = new Date("2024-08-16T00:00:00").getTime();
+
+    // 1秒ごとにカウントダウンを更新
+    const countdownFunction = setInterval(function() {
+        // 現在の日時を取得
+        const now = new Date().getTime();
+
+        // 終了日までの時間差を計算
+        const distance = countDownDate - now;
+
+        // 日、時、分、秒を計算
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // 表示用のテキストを作成
+        document.getElementById("current_time").innerHTML =
+            days + "日 " + hours + "時間 " + minutes + "分 " + seconds + "秒 ";
+
+        // 終了したらメッセージを表示
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("time_title").classList.add("hide");
+            document.getElementById("current_time").innerHTML = "Happy Birthday";
+        }
+    }, 1000);
+</script>
 {{--JS--}}
 @vite(['resources/js/scroll-animation.js', 'resources/js/modal.js'])
 
