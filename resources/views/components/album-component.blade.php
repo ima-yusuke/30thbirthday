@@ -114,17 +114,13 @@
     @endforeach
 </section>
 <script>
-    const dead = new Date(2024, 7, 16, 0, 0, 0); // 2024年8月16日 0:00:00
+    const dead = new Date(2024, 7, 18, 0, 0, 0); // 2024年8月18日 0:00:00
     const deadLine = parseInt( dead / 1000 ); // timestampに変更する
     const dateCurrent = parseInt( new Date() / 1000 ); // 現在時刻を取得
     const ALBUM_CONTAINER = document.getElementById("album_container");
 
-    if ( dateCurrent > deadLine ) {
-        ALBUM_CONTAINER.classList.remove("hide");
-    }
-
     // カウントダウンの終了日を設定
-    const countDownDate = new Date("2024-08-16T00:00:00").getTime();
+    const countDownDate = new Date("2024-08-18T00:00:00").getTime();
 
     // 1秒ごとにカウントダウンを更新
     const countdownFunction = setInterval(function() {
@@ -149,6 +145,7 @@
             clearInterval(countdownFunction);
             document.getElementById("time_title").classList.add("hide");
             document.getElementById("current_time").innerHTML = "Happy Birthday";
+            ALBUM_CONTAINER.classList.remove("hide");
         }
     }, 1000);
 </script>
