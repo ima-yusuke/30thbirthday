@@ -38,7 +38,7 @@
             <div class="flex flex-col md:flex-row md:items-center gap-4 border-y border-solid border-gray-200 py-4">
                 <x-required-title title="4.コンテンツ" />
                 <div class="flex-1">
-                    <textarea id="text" name="text" class="w-full h-[35px] md:h-full border border-solid border-gray-400 rounded-md" required></textarea>
+                    <textarea id="text" name="text" class="w-full h-[100px] md:h-full border border-solid border-gray-400 rounded-md" required></textarea>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row md:items-center gap-4 border-y border-solid border-gray-200 py-4">
