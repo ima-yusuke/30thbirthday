@@ -7,7 +7,9 @@ use App\Http\Controllers\AdminController;
 
 Route::get("/",[BirthdayController::class,"ShowOpening"]);
 Route::get("/birthday",[BirthdayController::class,"ShowIndex"])->name("ShowIndex");
-
+Route::get("/list",[BirthdayController::class,"ShowList"])->name("ShowList");
+Route::post("/list",[BirthdayController::class,"AddList"])->name("AddList");
+Route::patch("/list",[BirthdayController::class,"ToggleList"])->name("ToggleList");
 
 Route::get('/dashboard', function () {
     return view('dashboard');

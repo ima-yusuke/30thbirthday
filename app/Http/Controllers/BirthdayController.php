@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Place;
 
 class BirthdayController extends Controller
 {
@@ -19,5 +20,32 @@ class BirthdayController extends Controller
         $albumData = Post::orderBy('date', 'asc')->get();
 
         return view("index",compact("albumData"));
+    }
+
+    public function ShowList(){
+
+        $places = Place::all();
+
+        return view("list",compact("places"));
+    }
+
+    public function AddList(Request $request){
+
+        $place = new Place();
+        $place->place = $request->place;
+        $place->category = $request->category;
+        $place->prefecture = $request->prefecture;
+        $place->save();
+
+        return redirect()->route("ShowList");
+    }
+
+    public function ToggleList(Request $request){
+
+        $place = Place::find($request->id);
+        $place->flag = !$place->flag;
+        $place->save();
+
+        return redirect()->route("ShowList");
     }
 }
