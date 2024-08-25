@@ -78,7 +78,7 @@
 
         {{--リスト--}}
         <article class="ml-6 mt-6">
-            <ul>
+            <ul class="flex flex-col gap-4">
                 @if($places!=null)
                     @foreach($places as $place)
                         <li class="flex items-center">
