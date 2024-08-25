@@ -25,7 +25,7 @@ class BirthdayController extends Controller
     public function ShowList(){
 
         // カテゴリー順にソートして取得
-        $places = Place::orderBy('category')->get();
+        $places = Place::orderBy('prefecture')->orderBy('category')->get();
 
         return view("list",compact("places"));
     }
