@@ -81,7 +81,7 @@
             <ul>
                 @if($places!=null)
                     @foreach($places as $place)
-                        <li class="flex">
+                        <li class="flex items-center">
                             <form method="post" action="{{route('ToggleList')}}">
                                 @csrf
                                 @method('PATCH')
@@ -93,6 +93,12 @@
                                 @endif
                             </form>
                             <p>{{$place["place"]}}（{{$place["prefecture"]}}/{{$place["category"]}}）</p>
+                            <form method="post" action="{{route('DeleteList')}}">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="id" value="{{ $place->id }}">
+                                <button type="submit" class="p-2 bg-red-500 rounded-lg text-white">削除</button>
+                            </form>
                         </li>
                     @endforeach
                 @endif

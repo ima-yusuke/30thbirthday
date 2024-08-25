@@ -48,4 +48,12 @@ class BirthdayController extends Controller
 
         return redirect()->route("ShowList");
     }
+
+    public function DeleteList(Request $request){
+
+        $place = Place::find($request->id);
+        $place->delete();
+
+        return redirect()->route("ShowList");
+    }
 }
